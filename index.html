@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Protected Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    #password-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    #protected-content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hidden {
+      display: none;
+    }
+    input[type="password"], button {
+      padding: 10px;
+      margin: 5px;
+    }
+    .content-wrapper {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 20px;
+    }
+    iframe {
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div id="password-container">
+  <h2>Enter Password to Access the Content</h2>
+  <input type="password" id="password-input" placeholder="Enter password">
+  <button onclick="checkPassword()">Submit</button>
+</div>
+
+<div id="protected-content">
+  <h2>That's right, we'll go to Merksplas in Belgium! Now please fill in the RSVP form below.</h2>
+  <div class="content-wrapper">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79697.80180040296!2d4.788421745126802!3d51.37445296402637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6af01c4de5ebb%3A0x503aa8abb2714edf!2s2330%20Merksplas%2C%20Belgium!5e0!3m2!1sen!2snl!4v1720444091418!5m2!1sen!2snl" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeGhwAstoYrphrUzer28zcsBBskXsNR_qIriPuEluEb4weFgg/viewform?embedded=true" width="640" height="756" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+</div>
+
+<script>
+  function checkPassword() {
+    const password = document.getElementById('password-input').value;
+    const correctPassword = 'Merksplas';  // Replace 'yourpassword' with the actual password
+
+    if (password === correctPassword) {
+      document.getElementById('password-container').classList.add('hidden');
+      document.getElementById('protected-content').style.display = 'flex';
+    } else {
+      alert('Incorrect password');
+    }
+  }
+</script>
+
+</body>
+</html>
